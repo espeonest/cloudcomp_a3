@@ -21,7 +21,7 @@ public class CartsRepository {
     ));
 
     // create & return cart if none exists for current session
-    // returns new empty cart otherwise
+    // returns cart from database otherwise
     public Cart getCart(String sessionId) {
         var existingCart = jdbcTemplate.query(
              "SELECT * FROM carts WHERE sessionid = ?",
