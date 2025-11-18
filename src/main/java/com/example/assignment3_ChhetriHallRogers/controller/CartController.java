@@ -41,17 +41,21 @@ public class CartController {
         return cartsRepository.addToCart(currentCart, shoeid);
     }
 
-    @DeleteMapping("/cart/remove")
-    public Cart removeFromCart(HttpSession session) {
+    @DeleteMapping("/cart/remove/{entryid}")
+    public Cart removeFromCart(HttpSession session, @PathVariable int entryid) {
         String sessionId = session.getAttribute("sessionId").toString();
-        // rep remove from cart function
-        return cartsRepository.getCart(sessionId);
+        Cart currentCart = cartsRepository.getCart(sessionId);
+        cartsRepository.removeFromCart(currentCart, entryid);
+        Cart newCart = cartsRepository.getCart(sessionId);
+        return newCart;
     }
 
     @DeleteMapping("/cart/remove-all")
     public Cart removeAllFromCart(HttpSession session) {
         String sessionId = session.getAttribute("sessionId").toString();
-        // rep remove all from cart function
-        return cartsRepository.getCart(sessionId);
+        Cart currentCart = cartsRepository.getCart(sessionId);
+        cartsRepository.removeAllFromCart(currentCart);
+        Cart newCart = cartsRepository.getCart(sessionId);
+        return newCart;
     }
 }

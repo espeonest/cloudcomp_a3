@@ -100,9 +100,45 @@ public class CartsRepository {
                 cart.getCartID(),
                 shoeId
                 );
-
         List<Shoes> shoesList =  getCartContents(cart);
+        // update cart details
+        updateCart(cart);
         return shoesList;
+    }
+
+    public List<Shoes> removeFromCart(Cart cart, int entryId) {
+        jdbcTemplate.update(
+                "DELETE FROM products_carts WHERE entryid=?",
+                entryId
+        );
+        updateCart(cart);
+        return getCartContents(cart);
+    }
+
+    public List<Shoes> removeAllFromCart(Cart cart) {
+        jdbcTemplate.update(
+                "DELETE FROM products_carts WHERE cartid=?",
+                cart.getCartID()
+        );
+        updateCart(cart);
+        return getCartContents(cart);
+    }
+
+    // internal function for updating cart details
+    private void updateCart(Cart cart) {
+        List<Shoes> shoesList =  getCartContents(cart);
+        Float totalPrice = 0.0f;
+        for(Shoes shoe : shoesList) {
+            totalPrice += (float) shoe.getPrice();
+        }
+        cart.setProductCount(shoesList.size());
+        cart.setTotalPrice(totalPrice);
+        jdbcTemplate.update(
+                "UPDATE carts SET totalprice = ?, productcount = ? WHERE cartid = ?",
+                totalPrice,
+                shoesList.size(),
+                cart.getCartID()
+        );
     }
 
 }
