@@ -34,9 +34,10 @@ public class CartController {
     }
 
     @PostMapping("/cart/add/{shoeid}")
-    public List<Shoes> addToCart(@PathVariable int shoeid, HttpSession session) {
+    public CartViewModel addToCart(@PathVariable int shoeid, HttpSession session) {
         Cart currentCart = getCart(session);
-        return cartsRepository.addToCart(currentCart, shoeid);
+        cartsRepository.addToCart(currentCart, shoeid);
+        return cartsRepository.getCartViewModel(currentCart);
     }
 
     @DeleteMapping("/cart/remove/{entryid}")
