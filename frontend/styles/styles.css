@@ -16,3 +16,27 @@ header {
 button {
   cursor: pointer;
 }
+
+/*Responsive Grid Layout*/
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 300px));
+  gap: 12px;
+  padding: 20px;
+}
+
+/*Creating Card Styling*/
+.shoe-card,
+.cart-card {
+  border: 0.5px solid gray;
+  padding: 10px;
+  border-radius: 5px;
+  max-width: 300px;
+}
+
+/*Responsive Images*/
+.shoe-card img,
+.cart.card img {
+  max-width: 100%;
+  height: auto;
+}
