@@ -6,7 +6,7 @@ public class CartViewModel {
     int cartId;
     List<Shoes> contents;
     int[] entryIds;
-    Float totalPrice = 0f;
+    Float totalPrice = 0.0f;
     int cartSize;
 
     public CartViewModel(int cartId) {
