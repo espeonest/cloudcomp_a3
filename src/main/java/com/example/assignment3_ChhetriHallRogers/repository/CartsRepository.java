@@ -2,6 +2,7 @@ package com.example.assignment3_ChhetriHallRogers.repository;
 
 import com.example.assignment3_ChhetriHallRogers.model.Cart;
 import com.example.assignment3_ChhetriHallRogers.model.CartList;
+import com.example.assignment3_ChhetriHallRogers.model.CartViewModel;
 import com.example.assignment3_ChhetriHallRogers.model.Shoes;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
@@ -106,22 +107,43 @@ public class CartsRepository {
         return shoesList;
     }
 
-    public List<Shoes> removeFromCart(Cart cart, int entryId) {
+    public CartViewModel removeFromCart(Cart cart, int entryId) {
         jdbcTemplate.update(
                 "DELETE FROM products_carts WHERE entryid=?",
                 entryId
         );
         updateCart(cart);
-        return getCartContents(cart);
+        return getCartViewModel(cart);
     }
 
-    public List<Shoes> removeAllFromCart(Cart cart) {
+    public Cart removeAllFromCart(Cart cart) {
         jdbcTemplate.update(
                 "DELETE FROM products_carts WHERE cartid=?",
                 cart.getCartID()
         );
         updateCart(cart);
-        return getCartContents(cart);
+        return cart;
+    }
+
+    public CartViewModel getCartViewModel(Cart cart) {
+        CartViewModel viewModel = new CartViewModel(cart.getCartID());
+        viewModel.setTotalPrice(cart.getTotalPrice());
+        viewModel.setCartSize(cart.getProductCount());
+        viewModel.setContents(getCartContents(cart));
+
+        var cartList = jdbcTemplate.query(
+                "SELECT * FROM products_carts WHERE cartid=?",
+                new Object[]{cart.getCartID()},
+                cartListRowMapper
+        );
+        int[] entryList = new int[cart.getProductCount()];
+        int counter = 0;
+        for(var cartItem : cartList) {
+            entryList[counter++] = cartItem.getEntryId();
+        }
+        viewModel.setEntryIds(entryList);
+
+        return viewModel;
     }
 
     // internal function for updating cart details
@@ -140,5 +162,6 @@ public class CartsRepository {
                 cart.getCartID()
         );
     }
+
 
 }

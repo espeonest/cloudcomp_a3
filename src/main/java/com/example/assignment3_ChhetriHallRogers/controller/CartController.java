@@ -1,6 +1,7 @@
 package com.example.assignment3_ChhetriHallRogers.controller;
 
 import com.example.assignment3_ChhetriHallRogers.model.Cart;
+import com.example.assignment3_ChhetriHallRogers.model.CartViewModel;
 import com.example.assignment3_ChhetriHallRogers.model.Shoes;
 import com.example.assignment3_ChhetriHallRogers.repository.CartsRepository;
 import com.example.assignment3_ChhetriHallRogers.repository.ShoesRepository;
@@ -13,11 +14,8 @@ import java.util.List;
 @RestController
 public class CartController {
     private final CartsRepository cartsRepository;
-    private final ShoesRepository shoesRepository;
-
-    public CartController(CartsRepository cartsRepository, ShoesRepository shoesRepository) {
+    public CartController(CartsRepository cartsRepository) {
         this.cartsRepository = cartsRepository;
-        this.shoesRepository = shoesRepository;
     }
 
     // debating taking out the get mapping here
@@ -30,9 +28,9 @@ public class CartController {
     }
 
     @GetMapping("/cart/items")
-    public List<Shoes> getCartItems(HttpSession session) {
+    public CartViewModel getCartItems(HttpSession session) {
         Cart currentCart = getCart(session);
-        return cartsRepository.getCartContents(currentCart);
+        return cartsRepository.getCartViewModel(currentCart);
     }
 
     @PostMapping("/cart/add/{shoeid}")
@@ -42,20 +40,16 @@ public class CartController {
     }
 
     @DeleteMapping("/cart/remove/{entryid}")
-    public Cart removeFromCart(HttpSession session, @PathVariable int entryid) {
+    public CartViewModel removeFromCart(HttpSession session, @PathVariable int entryid) {
         String sessionId = session.getAttribute("sessionId").toString();
         Cart currentCart = cartsRepository.getCart(sessionId);
-        cartsRepository.removeFromCart(currentCart, entryid);
-        Cart newCart = cartsRepository.getCart(sessionId);
-        return newCart;
+        return cartsRepository.removeFromCart(currentCart, entryid);
     }
 
     @DeleteMapping("/cart/remove-all")
     public Cart removeAllFromCart(HttpSession session) {
         String sessionId = session.getAttribute("sessionId").toString();
         Cart currentCart = cartsRepository.getCart(sessionId);
-        cartsRepository.removeAllFromCart(currentCart);
-        Cart newCart = cartsRepository.getCart(sessionId);
-        return newCart;
+        return cartsRepository.removeAllFromCart(currentCart);
     }
 }
