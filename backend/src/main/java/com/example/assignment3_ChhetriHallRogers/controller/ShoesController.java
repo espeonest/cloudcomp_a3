@@ -22,7 +22,7 @@ public class ShoesController {
 
     // GET shoe by ID
     @GetMapping("shoes/{shoeID}")
-    public Shoes getShoeById(@PathVariable int shoeID) {
+    public Shoes getShoeById(@PathVariable ("shoeID") int shoeID) {
         return repository.findById(shoeID);
     }
 
@@ -34,7 +34,7 @@ public class ShoesController {
 
     //Update Shoe by ID
     @PutMapping("shoes/{shoeID}")
-    public Shoes updateShoeById(@PathVariable int shoeID, @RequestBody Shoes updatedShoe) {
+    public Shoes updateShoeById(@PathVariable("shoeID") int shoeID, @RequestBody Shoes updatedShoe) {
         Shoes existingShoe = repository.findById(shoeID);
 
         if (existingShoe != null) {
@@ -57,7 +57,7 @@ public class ShoesController {
 
     //Delete Shoe by ID
     @DeleteMapping("shoes/{shoeID}")
-    public Shoes deleteShoeById(@PathVariable int shoeID) {
+    public Shoes deleteShoeById(@PathVariable ("shoeID") int shoeID) {
         Shoes shoe = repository.findById(shoeID);
         repository.delete(shoeID);
         return shoe;
