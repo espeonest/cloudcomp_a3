@@ -1,20 +1,21 @@
 const cartGrid = document.getElementById("cart-items-grid");
 
-const API_URL = "http://localhost:8081/cart";
+const API_URL = "http://localhost:8081/cart/items";
 
 async function loadCart() {
   try {
     const response = await fetch(API_URL);
     const cartItems = await response.json();
+    showCartItems(cartItems);
   } catch (error) {
-    console.error("Error loading shoes:", error);
+    console.error("Error loading cart:", error);
   }
 }
 
 function showCartItems(cartItems) {
   cartGrid.innerHTML = "";
 
-  shoes.forEach((shoe) => {
+  cartItems.forEach((shoe) => {
     const card = document.createElement("div");
     card.className = "cart-card";
 

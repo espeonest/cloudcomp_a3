@@ -4,7 +4,22 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="86ef7a62-f99b-4042-931a-e095264f4403" name="Changes" comment="Update Shoes Controller to correct after backend folder was created" />
+    <list default="true" id="86ef7a62-f99b-4042-931a-e095264f4403" name="Changes" comment="implemented viewmodel and adjusted cart controller accordingly">
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/scripts/cart.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/scripts/cart.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/scripts/shoes.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/scripts/shoes.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/application.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/assignment3_ChhetriHallRogers/Assignment3ChhetriHallRogersApplication.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/assignment3_ChhetriHallRogers/controller/CartController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/assignment3_ChhetriHallRogers/controller/ShoesController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/assignment3_ChhetriHallRogers/model/Cart.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/assignment3_ChhetriHallRogers/model/CartList.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/assignment3_ChhetriHallRogers/model/Shoes.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/assignment3_ChhetriHallRogers/repository/CartsRepository.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/assignment3_ChhetriHallRogers/repository/ShoesRepository.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/assignment3_ChhetriHallRogers/service/ShoesService.class" beforeDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -19,12 +34,12 @@
     &quot;assignee&quot;: &quot;BrittRog&quot;
   }
 }</component>
-  <component name="GithubPullRequestsUISettings">{
-  &quot;selectedUrlAndAccountId&quot;: {
-    &quot;url&quot;: &quot;https://github.com/espeonest/cloudcomp_a3.git&quot;,
-    &quot;accountId&quot;: &quot;74e48751-8fc5-4b53-b256-1e62a7d042b6&quot;
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "https://github.com/espeonest/cloudcomp_a3.git",
+    "accountId": "31672417-4872-453e-8d3a-3420f1c31c62"
   }
-}</component>
+}]]></component>
   <component name="MavenImportPreferences">
     <option name="generalSettings">
       <MavenGeneralSettings>
@@ -43,27 +58,27 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ModuleVcsDetector.initialDetectionPerformed": "true",
-    "RequestMappingsPanelOrder0": "0",
-    "RequestMappingsPanelOrder1": "1",
-    "RequestMappingsPanelWidth0": "75",
-    "RequestMappingsPanelWidth1": "75",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "Spring Boot.Assignment3ChhetriHallRogersApplication.executor": "Run",
-    "git-widget-placeholder": "master",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/Owner/Dropbox/Fall 2025 Semester/Cloud Computing & App Development-PROG3350-2/assignment3_ChhetriHallRogers",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
+    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
+    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
+    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;Spring Boot.Assignment3ChhetriHallRogersApplication.executor&quot;: &quot;Run&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Owner/Dropbox/Fall 2025 Semester/Cloud Computing &amp; App Development-PROG3350-2/assignment3_ChhetriHallRogers&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="com.example.assignment3_ChhetriHallRogers.controller" />
@@ -102,6 +117,7 @@
       <workItem from="1763138162127" duration="2770000" />
       <workItem from="1763468091013" duration="417000" />
       <workItem from="1763477214768" duration="2818000" />
+      <workItem from="1763581498016" duration="430000" />
     </task>
     <task id="LOCAL-00001" summary="Initial Commit. Added Update and Delete for Product Service">
       <option name="closed" value="true" />

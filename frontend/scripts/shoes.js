@@ -1,12 +1,12 @@
 const shoesGrid = document.getElementById("shoes-grid");
 
 const API_URL = "http://localhost:8081/shoes";
+const CART_URL = "http://localhost:8081/cart/add/";
 
 async function loadShoes() {
   try {
     const response = await fetch(API_URL);
     const shoes = await response.json();
-
     shoesGrid.innerHTML = "";
 
     shoes.forEach(shoe => {
@@ -19,17 +19,24 @@ async function loadShoes() {
         <p>Cost: $${shoe.price}</p>
         <p>SKU: ${shoe.sku}</p>
         <!-- Add to Cart Button -->
-        <button class="add-cart-btn">
+        <button id="btn-${shoe.shoeID}" class="add-cart-btn">
           Add to Cart
         </button>
       `;
-
       shoesGrid.appendChild(card);
+      document.getElementById(`btn-${shoe.shoeID}`).addEventListener("click", addToCart(shoe.shoeID))
     });
-
 
   } catch (error) {
     console.error("Error loading shoes:", error);
+  }
+}
+
+async function addToCart(id){
+  try {
+    await fetch(CART_URL + id, {method: "POST"});
+  } catch {
+    console.error("Problem adding to cart");
   }
 }
 
