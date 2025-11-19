@@ -14,11 +14,9 @@ import java.util.List;
 @Repository
 public class CartsRepository {
     private final JdbcTemplate jdbcTemplate;
-    private final ShoesRepository shoesRepository;
 
-    public CartsRepository(JdbcTemplate jdbcTemplate, ShoesRepository shoesRepository) {
+    public CartsRepository(JdbcTemplate jdbcTemplate) {
         this.jdbcTemplate = jdbcTemplate;
-        this.shoesRepository = shoesRepository;
     }
 
     private final RowMapper<Cart> cartRowMapper = (rs, rowNum ) -> ( new Cart(
@@ -52,7 +50,7 @@ public class CartsRepository {
                 new Object[]{sessionId},
                 cartRowMapper
         );
-        if(existingCart.size() != 0) {
+        if(!existingCart.isEmpty()) {
             return existingCart.getFirst(); // there should only ever be one value so "getfirst" is a syntax formality
         } else {
             var newCart = new Cart(sessionId);
@@ -75,7 +73,7 @@ public class CartsRepository {
         List<Shoes> shoesList =  new ArrayList<>();
         var cartList = jdbcTemplate.query(
                 "SELECT * FROM products_carts WHERE cartid=?",
-                new Object[]{cart.getCartID()},
+                new Object[]{(Object) cart.getCartID()},
                 cartListRowMapper
         );
         cartList.forEach(cartItem -> {
