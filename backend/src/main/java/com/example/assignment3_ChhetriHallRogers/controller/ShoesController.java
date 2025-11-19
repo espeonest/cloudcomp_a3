@@ -5,7 +5,8 @@ import com.example.assignment3_ChhetriHallRogers.repository.ShoesRepository;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-@CrossOrigin(origins = "*")
+
+//@CrossOrigin(origins = "")
 @RestController
 public class ShoesController {
     private final ShoesRepository repository;

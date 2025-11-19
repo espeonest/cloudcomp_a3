@@ -5,17 +5,17 @@ const API_URL = "http://localhost:8081/cart/items";
 async function loadCart() {
   try {
     const response = await fetch(API_URL);
-    const cartItems = await response.json();
-    showCartItems(cartItems);
+    const viewModel = await response.json();
+    showCartItems(viewModel);
   } catch (error) {
     console.error("Error loading cart:", error);
   }
 }
 
-function showCartItems(cartItems) {
+function showCartItems(viewModel) {
   cartGrid.innerHTML = "";
 
-  cartItems.forEach((shoe) => {
+  viewModel.contents.forEach((shoe) => {
     const card = document.createElement("div");
     card.className = "cart-card";
 

@@ -24,7 +24,7 @@ async function loadShoes() {
         </button>
       `;
       shoesGrid.appendChild(card);
-      document.getElementById(`btn-${shoe.shoeID}`).addEventListener("click", addToCart(shoe.shoeID))
+      document.getElementById(`btn-${shoe.shoeID}`).addEventListener("click", function(event){addToCart(shoe.shoeID)})
     });
 
   } catch (error) {
@@ -34,7 +34,8 @@ async function loadShoes() {
 
 async function addToCart(id){
   try {
-    await fetch(CART_URL + id, {method: "POST"});
+    const response = await fetch(CART_URL + id, {method: "POST", credentials: "include"});
+    console.log((await response.json()).contents)
   } catch {
     console.error("Problem adding to cart");
   }
