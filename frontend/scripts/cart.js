@@ -1,6 +1,7 @@
 const cartGrid = document.getElementById("cart-items-grid");
 
 const API_URL = "http://localhost:8081/cart/items";
+const REM_URL = "http://localhost:8081/cart/remove";
 
 async function loadCart() {
   try {
@@ -12,9 +13,9 @@ async function loadCart() {
   }
 }
 
-function showCartItems(viewModel) {
+async function showCartItems(viewModel) {
   cartGrid.innerHTML = "";
-
+  var counter = 0;
   viewModel.contents.forEach((shoe) => {
     const card = document.createElement("div");
     card.className = "cart-card";
@@ -25,13 +26,33 @@ function showCartItems(viewModel) {
         <p>Cost: $${shoe.price}</p>
         <p>SKU: ${shoe.sku}</p>
         <!-- Remove from Cart Button -->
-        <button class="remove-cart-btn">
+        <button id="btn-${viewModel.entryIds[counter]}" class="remove-cart-btn">
          Remove
         </button>
       `;
-
+    document.getElementById(`btn-${viewModel.entryIds[counter]}`).addEventListener("click", function(event){remove(viewModel.entryIds[counter])});
     cartGrid.appendChild(card);
+    counter++;
   });
+  document.getElementById(`btn-empty`).addEventListener("click", function(event){removeAll()});
+}
+
+async function remove(entryId){
+  try {
+    const response = await fetch(REM_URL + "/" + entryId, {method: "DELETE", credentials: "include"});
+    console.log((await response.json()).contents);
+  } catch {
+    console.error("Problem removing from cart");
+  }
+}
+
+async function removeAll(){
+  try {
+    const response = await fetch(REM_URL + "-all", {method: "DELETE", credentials: "include"});
+    console.log((await response.json()).contents);
+  } catch {
+    console.error("Problem emptying cart");
+  }
 }
 
 loadCart();

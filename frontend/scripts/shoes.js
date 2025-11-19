@@ -35,7 +35,7 @@ async function loadShoes() {
 async function addToCart(id){
   try {
     const response = await fetch(CART_URL + id, {method: "POST", credentials: "include"});
-    console.log((await response.json()).contents)
+    console.log((await response.json()).contents);
   } catch {
     console.error("Problem adding to cart");
   }

@@ -4,21 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="86ef7a62-f99b-4042-931a-e095264f4403" name="Changes" comment="implemented viewmodel and adjusted cart controller accordingly">
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+    <list default="true" id="86ef7a62-f99b-4042-931a-e095264f4403" name="Changes" comment="added commented CrossOrigin tags for future">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/example/assignment3_ChhetriHallRogers/model/CartViewModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/example/assignment3_ChhetriHallRogers/model/CartViewModel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/scripts/cart.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/scripts/cart.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/scripts/shoes.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/scripts/shoes.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/application.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/assignment3_ChhetriHallRogers/Assignment3ChhetriHallRogersApplication.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/assignment3_ChhetriHallRogers/controller/CartController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/assignment3_ChhetriHallRogers/controller/ShoesController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/assignment3_ChhetriHallRogers/model/Cart.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/assignment3_ChhetriHallRogers/model/CartList.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/assignment3_ChhetriHallRogers/model/Shoes.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/assignment3_ChhetriHallRogers/repository/CartsRepository.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/assignment3_ChhetriHallRogers/repository/ShoesRepository.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/assignment3_ChhetriHallRogers/service/ShoesService.class" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -117,7 +106,7 @@
       <workItem from="1763138162127" duration="2770000" />
       <workItem from="1763468091013" duration="417000" />
       <workItem from="1763477214768" duration="2818000" />
-      <workItem from="1763581498016" duration="430000" />
+      <workItem from="1763581498016" duration="8491000" />
     </task>
     <task id="LOCAL-00001" summary="Initial Commit. Added Update and Delete for Product Service">
       <option name="closed" value="true" />
@@ -151,7 +140,15 @@
       <option name="project" value="LOCAL" />
       <updated>1763479920161</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="added commented CrossOrigin tags for future">
+      <option name="closed" value="true" />
+      <created>1763591606563</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1763591606563</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -172,6 +169,7 @@
     <MESSAGE value="Initial Commit. Added Update and Delete for Product Service" />
     <MESSAGE value="Update Product Controller to correct after backend folder was created" />
     <MESSAGE value="Update Shoes Controller to correct after backend folder was created" />
-    <option name="LAST_COMMIT_MESSAGE" value="Update Shoes Controller to correct after backend folder was created" />
+    <MESSAGE value="added commented CrossOrigin tags for future" />
+    <option name="LAST_COMMIT_MESSAGE" value="added commented CrossOrigin tags for future" />
   </component>
 </project>

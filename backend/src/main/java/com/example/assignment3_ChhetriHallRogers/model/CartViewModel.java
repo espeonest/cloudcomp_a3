@@ -13,6 +13,8 @@ public class CartViewModel {
         this.cartId = cartId;
     }
 
+    public int getCartId() { return cartId; }
+
     public List<Shoes> getContents() {
         return contents;
     }
