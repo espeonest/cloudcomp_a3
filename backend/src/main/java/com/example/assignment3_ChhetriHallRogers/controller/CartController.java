@@ -22,8 +22,14 @@ public class CartController {
     // test API by going to /cart
     @GetMapping("/cart")
     public Cart getCart(HttpSession session) {
-        String sessionId = session.getId();
-        session.setAttribute("sessionId", sessionId);
+        String sessionId;
+        if(session.getAttribute("sessionId") != null){
+            sessionId = (String) session.getAttribute("sessionId");
+        }
+        else {
+            sessionId = session.getId();
+            session.setAttribute("sessionId", sessionId);
+        }
         return cartsRepository.getCart(sessionId);
     }
 

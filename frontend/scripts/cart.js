@@ -4,7 +4,7 @@ const API_URL = "http://localhost:8081/cart/";
 
 async function loadCart() {
   try {
-    const response = await fetch(API_URL + "items");
+    const response = await fetch(API_URL + "items", {credentials: "include"});
     const viewModel = await response.json();
     console.log(viewModel.contents);
     showCartItems(viewModel);
