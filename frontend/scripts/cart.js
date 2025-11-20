@@ -31,10 +31,12 @@ async function showCartItems(viewModel) {
         </button>
       `;
     cartGrid.appendChild(card);
+    console.log("Counter value: " + counter);
+    console.log("Current entry value: " + viewModel.entryIds[counter]);
     document
       .getElementById(`btn-${viewModel.entryIds[counter]}`)
       .addEventListener("click", function (event) {
-        remove(`${viewModel.entryIds[counter]}`);
+        remove(viewModel.entryIds[counter]);
       });
     counter++;
   });
@@ -53,6 +55,7 @@ async function remove(entryId) {
       credentials: "include",
     });
     console.log((await response.json()).contents);
+    loadCart();
   } catch {
     console.error("Problem removing from cart");
   }
@@ -64,7 +67,7 @@ async function removeAll() {
       method: "DELETE",
       credentials: "include",
     });
-    location.reload();
+    loadCart();
     return false;
   } catch {
     console.error("Problem emptying cart");
