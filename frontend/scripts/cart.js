@@ -1,11 +1,10 @@
 const cartGrid = document.getElementById("cart-items-grid");
 
-const API_URL = "http://localhost:8081/cart/items";
-const REM_URL = "http://localhost:8081/cart/remove";
+const API_URL = "http://localhost:8081/cart/";
 
 async function loadCart() {
   try {
-    const response = await fetch(API_URL);
+    const response = await fetch(API_URL+"items");
     const viewModel = await response.json();
     showCartItems(viewModel);
   } catch (error) {
@@ -39,7 +38,7 @@ async function showCartItems(viewModel) {
 
 async function remove(entryId){
   try {
-    const response = await fetch(REM_URL + "/" + entryId, {method: "DELETE", credentials: "include"});
+    const response = await fetch(API_URL + entryId, {method: "DELETE", credentials: "include"});
     console.log((await response.json()).contents);
   } catch {
     console.error("Problem removing from cart");
@@ -48,7 +47,7 @@ async function remove(entryId){
 
 async function removeAll(){
   try {
-    const response = await fetch(REM_URL + "-all", {method: "DELETE", credentials: "include"});
+    const response = await fetch(API_URL + "emptycart", {method: "DELETE", credentials: "include"});
     console.log((await response.json()).contents);
   } catch {
     console.error("Problem emptying cart");

@@ -6,8 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="86ef7a62-f99b-4042-931a-e095264f4403" name="Changes" comment="added commented CrossOrigin tags for future">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/example/assignment3_ChhetriHallRogers/model/CartViewModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/example/assignment3_ChhetriHallRogers/model/CartViewModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/scripts/cart.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/scripts/cart.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/example/assignment3_ChhetriHallRogers/controller/CartController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/example/assignment3_ChhetriHallRogers/controller/CartController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -106,7 +105,7 @@
       <workItem from="1763138162127" duration="2770000" />
       <workItem from="1763468091013" duration="417000" />
       <workItem from="1763477214768" duration="2818000" />
-      <workItem from="1763581498016" duration="8491000" />
+      <workItem from="1763581498016" duration="10579000" />
     </task>
     <task id="LOCAL-00001" summary="Initial Commit. Added Update and Delete for Product Service">
       <option name="closed" value="true" />

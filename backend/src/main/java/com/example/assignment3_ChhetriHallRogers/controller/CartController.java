@@ -41,14 +41,14 @@ public class CartController {
         return cartsRepository.getCartViewModel(currentCart);
     }
 
-    @DeleteMapping("/cart/remove/{entryid}")
+    @DeleteMapping("/cart/{entryid}")
     public CartViewModel removeFromCart(HttpSession session, @PathVariable int entryid) {
         String sessionId = session.getAttribute("sessionId").toString();
         Cart currentCart = cartsRepository.getCart(sessionId);
         return cartsRepository.removeFromCart(currentCart, entryid);
     }
 
-    @DeleteMapping("/cart/remove-all")
+    @DeleteMapping("/cart/emptycart")
     public Cart removeAllFromCart(HttpSession session) {
         String sessionId = session.getAttribute("sessionId").toString();
         Cart currentCart = cartsRepository.getCart(sessionId);
