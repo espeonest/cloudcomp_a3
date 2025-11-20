@@ -6,7 +6,6 @@ async function loadCart() {
   try {
     const response = await fetch(API_URL + "items", {credentials: "include"});
     const viewModel = await response.json();
-    viewModel.contents.forEach((shoe) => {console.log(shoe)});
     showCartItems(viewModel);
   } catch (error) {
     console.error("Error loading cart:", error);
@@ -31,12 +30,12 @@ async function showCartItems(viewModel) {
          Remove
         </button>
       `;
+    cartGrid.appendChild(card);
     document
       .getElementById(`btn-${viewModel.entryIds[counter]}`)
       .addEventListener("click", function (event) {
         remove(viewModel.entryIds[counter]);
       });
-    cartGrid.appendChild(card);
     counter++;
   });
   document
