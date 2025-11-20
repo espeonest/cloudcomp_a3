@@ -32,7 +32,7 @@ async function loadShoes() {
         });
     });
   } catch (error) {
-    console.error("Error loading shoes:", error);
+    console.error("Error loading shoes: ", error);
   }
 }
 

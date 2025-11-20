@@ -24,7 +24,7 @@ async function showCartItems(viewModel) {
         <img src="${shoe.image}" alt="${shoe.name}" class="shoe-image">
         <h3>${shoe.name}</h3>
         <p>${shoe.description}</p>
-        <p>Cost: $${shoe.price}</p>
+        <p>Cost: $${Number(parseFloat(shoe.price)).toFixed(2)}</p>
         <p>SKU: ${shoe.sku}</p>
         <!-- Remove from Cart Button -->
         <button id="btn-${entry}" class="remove-cart-btn">
