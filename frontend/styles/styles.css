@@ -36,8 +36,8 @@ button {
 
 /*Responsive Square Images*/
 .shoe-card.card img,
-.cart-card.card img,
-.cart img {
+.cart-card img,
+.cart img, .shoe-image {
   width: 100%;
   aspect-ratio: 1/1;
   object-fit: cover;

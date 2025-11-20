@@ -34,7 +34,7 @@ async function showCartItems(viewModel) {
     document
       .getElementById(`btn-${viewModel.entryIds[counter]}`)
       .addEventListener("click", function (event) {
-        remove(viewModel.entryIds[counter]);
+        remove(`${viewModel.entryIds[counter]}`);
       });
     counter++;
   });
