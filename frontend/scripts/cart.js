@@ -16,6 +16,7 @@ async function showCartItems(viewModel) {
   cartGrid.innerHTML = "";
   var counter = 0;
   viewModel.contents.forEach((shoe) => {
+    const entry = viewModel.entryIds[counter];
     const card = document.createElement("div");
     card.className = "cart-card";
 
@@ -26,17 +27,15 @@ async function showCartItems(viewModel) {
         <p>Cost: $${shoe.price}</p>
         <p>SKU: ${shoe.sku}</p>
         <!-- Remove from Cart Button -->
-        <button id="btn-${viewModel.entryIds[counter]}" class="remove-cart-btn">
+        <button id="btn-${entry}" class="remove-cart-btn">
          Remove
         </button>
       `;
     cartGrid.appendChild(card);
-    console.log("Counter value: " + counter);
-    console.log("Current entry value: " + viewModel.entryIds[counter]);
     document
-      .getElementById(`btn-${viewModel.entryIds[counter]}`)
+      .getElementById(`btn-${entry}`)
       .addEventListener("click", function (event) {
-        remove(viewModel.entryIds[counter]);
+        remove(entry);
       });
     counter++;
   });
