@@ -47,6 +47,7 @@ async function showCartItems(viewModel) {
 
 async function remove(entryId) {
   try {
+    console.log(entryId);
     const response = await fetch(`${API_URL}${entryId}`, {
       method: "DELETE",
       credentials: "include",
