@@ -1,7 +1,7 @@
 const shoesGrid = document.getElementById("shoes-grid");
 
-const API_URL = "http://localhost:8081/shoes";
-const CART_URL = "http://localhost:8081/cart/add/";
+const API_URL = "https://ecommerce-backend-82vp.onrender.com/shoes";
+const CART_URL = "https://ecommerce-backend-82vp.onrender.com/cart/add/";
 
 async function loadShoes() {
   try {
