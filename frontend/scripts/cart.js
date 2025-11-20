@@ -6,8 +6,6 @@ async function loadCart() {
   try {
     const response = await fetch(API_URL + "items", { credentials: "include" });
     const viewModel = await response.json();
-    console.log(viewModel);
-    console.log(viewModel.entryIds);
     showCartItems(viewModel);
   } catch (error) {
     console.error("Error loading cart:", error);
@@ -18,6 +16,7 @@ async function showCartItems(viewModel) {
   cartGrid.innerHTML = "";
   var counter = 0;
   viewModel.contents.forEach((shoe) => {
+    const entry = viewModel.entryIds[counter];
     const card = document.createElement("div");
     card.className = "cart-card";
 
@@ -28,15 +27,15 @@ async function showCartItems(viewModel) {
         <p>Cost: $${shoe.price}</p>
         <p>SKU: ${shoe.sku}</p>
         <!-- Remove from Cart Button -->
-        <button id="btn-${viewModel.entryIds[counter]}" class="remove-cart-btn">
+        <button id="btn-${entry}" class="remove-cart-btn">
          Remove
         </button>
       `;
     cartGrid.appendChild(card);
     document
-      .getElementById(`btn-${viewModel.entryIds[counter]}`)
+      .getElementById(`btn-${entry}`)
       .addEventListener("click", function (event) {
-        remove(viewModel.entryIds[counter]);
+        remove(entry);
       });
     counter++;
   });
@@ -49,11 +48,13 @@ async function showCartItems(viewModel) {
 
 async function remove(entryId) {
   try {
-    const response = await fetch(API_URL + entryId, {
+    console.log(entryId);
+    const response = await fetch(`${API_URL}${entryId}`, {
       method: "DELETE",
       credentials: "include",
     });
     console.log((await response.json()).contents);
+    loadCart();
   } catch {
     console.error("Problem removing from cart");
   }
@@ -65,7 +66,7 @@ async function removeAll() {
       method: "DELETE",
       credentials: "include",
     });
-    location.reload();
+    loadCart();
     return false;
   } catch {
     console.error("Problem emptying cart");
