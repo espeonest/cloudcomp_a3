@@ -1,10 +1,10 @@
 const cartGrid = document.getElementById("cart-items-grid");
 
-const API_URL = "http://localhost:8081/cart/";
+const API_URL = "https://ecommerce-backend-82vp.onrender.com/cart/";
 
 async function loadCart() {
   try {
-    const response = await fetch(API_URL + "items", {credentials: "include"});
+    const response = await fetch(API_URL + "items", { credentials: "include" });
     const viewModel = await response.json();
     showCartItems(viewModel);
   } catch (error) {
