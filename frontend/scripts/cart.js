@@ -6,7 +6,7 @@ async function loadCart() {
   try {
     const response = await fetch(API_URL + "items", {credentials: "include"});
     const viewModel = await response.json();
-    console.log(viewModel.contents);
+    viewModel.contents.forEach((shoe) => {console.log(shoe)});
     showCartItems(viewModel);
   } catch (error) {
     console.error("Error loading cart:", error);
