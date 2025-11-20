@@ -6,8 +6,6 @@ async function loadCart() {
   try {
     const response = await fetch(API_URL + "items", {credentials: "include"});
     const viewModel = await response.json();
-    console.log(viewModel);
-    console.log(viewModel.entryIds);
     showCartItems(viewModel);
   } catch (error) {
     console.error("Error loading cart:", error);
@@ -49,7 +47,7 @@ async function showCartItems(viewModel) {
 
 async function remove(entryId) {
   try {
-    const response = await fetch(API_URL + entryId, {
+    const response = await fetch(`${API_URL}${entryId}`, {
       method: "DELETE",
       credentials: "include",
     });
