@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@CrossOrigin(origins = "https://shoes-e-commerce-site.onrender.com/")
+@CrossOrigin(origins = "https://shoes-e-commerce-site.onrender.com/", allowCredentials = "true")
 @RestController
 public class CartController {
     private final CartsRepository cartsRepository;
@@ -19,8 +19,7 @@ public class CartController {
         this.cartsRepository = cartsRepository;
     }
 
-    // debating taking out the get mapping here
-    // might only be used for internal calls
+    // test API by going to /cart
     @GetMapping("/cart")
     public Cart getCart(HttpSession session) {
         String sessionId = session.getId();
