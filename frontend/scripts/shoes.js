@@ -9,11 +9,12 @@ async function loadShoes() {
     const shoes = await response.json();
     shoesGrid.innerHTML = "";
 
-    shoes.forEach(shoe => {
+    shoes.forEach((shoe) => {
       const card = document.createElement("div");
       card.classList.add("shoe-card");
 
       card.innerHTML = `
+        <img src="${shoe.image}" alt="${shoe.name}" class="shoe-image">
         <h3>${shoe.name}</h3>
         <p>${shoe.description}</p>
         <p>Cost: $${shoe.price}</p>
@@ -24,17 +25,23 @@ async function loadShoes() {
         </button>
       `;
       shoesGrid.appendChild(card);
-      document.getElementById(`btn-${shoe.shoeID}`).addEventListener("click", function(event){addToCart(shoe.shoeID)})
+      document
+        .getElementById(`btn-${shoe.shoeID}`)
+        .addEventListener("click", function (event) {
+          addToCart(shoe.shoeID);
+        });
     });
-
   } catch (error) {
     console.error("Error loading shoes:", error);
   }
 }
 
-async function addToCart(id){
+async function addToCart(id) {
   try {
-    const response = await fetch(CART_URL + id, {method: "POST", credentials: "include"});
+    const response = await fetch(CART_URL + id, {
+      method: "POST",
+      credentials: "include",
+    });
     console.log((await response.json()).contents);
   } catch {
     console.error("Problem adding to cart");
