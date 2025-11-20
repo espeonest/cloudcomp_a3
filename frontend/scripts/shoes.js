@@ -17,7 +17,7 @@ async function loadShoes() {
         <img src="${shoe.image}" alt="${shoe.name}" class="shoe-image">
         <h3>${shoe.name}</h3>
         <p>${shoe.description}</p>
-        <p>Cost: $${shoe.price}</p>
+        <p>Cost: $${Number(parseFloat(shoe.price)).toFixed(2)}</p>
         <p>SKU: ${shoe.sku}</p>
         <!-- Add to Cart Button -->
         <button id="btn-${shoe.shoeID}" class="add-cart-btn">

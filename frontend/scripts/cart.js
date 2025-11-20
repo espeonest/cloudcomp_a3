@@ -44,6 +44,7 @@ async function showCartItems(viewModel) {
     .addEventListener("click", function (event) {
       removeAll();
     });
+  document.getElementById("total-cost").innerHTML = `$${Number(parseFloat(viewModel.totalPrice)).toFixed(2)}`;
 }
 
 async function remove(entryId) {
