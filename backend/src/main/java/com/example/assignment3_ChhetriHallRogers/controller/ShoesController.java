@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@CrossOrigin(origins = "*")
+@CrossOrigin(origins = "https://shoes-e-commerce-site.onrender.com/")
 @RestController
 public class ShoesController {
     private final ShoesRepository repository;
