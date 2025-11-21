@@ -1,7 +1,7 @@
 const shoesGrid = document.getElementById("shoes-grid");
 
-const API_URL = "http://localhost:8081/shoes";
-const CART_URL = "http://localhost:8081/cart/add/";
+const API_URL = "https://backend-ecommerce-7wkz.onrender.com/shoes";
+const CART_URL = "https://backend-ecommerce-7wkz.onrender.com/cart/add/";
 
 async function loadShoes() {
   try {
@@ -40,7 +40,7 @@ async function addToCart(id) {
   try {
     const response = await fetch(CART_URL + id, {
       method: "POST",
-      credentials: "include",
+      credentials: "include"
     });
     console.log((await response.json()).contents);
   } catch {

@@ -1,6 +1,6 @@
 const cartGrid = document.getElementById("cart-items-grid");
 
-const API_URL = "http://localhost:8081/cart/";
+const API_URL = "https://backend-ecommerce-7wkz.onrender.com/cart/";
 
 async function loadCart() {
   try {
